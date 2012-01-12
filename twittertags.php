@@ -8,14 +8,14 @@
     $tagnames = array();
     $tagcounts = array();
     $dtweets = array();
-    $batch_count = 5;
+    $batch_count = 100;
     $total_tweets;
     $homepage;
     
     total_tweets($thandle);
     
     $max_cycles = 2;
-    if($total_tweets < 5){
+    if($total_tweets < 500){
         $max_cycles = floor($total_tweets/$batch_count); 
     }
     
@@ -115,7 +115,7 @@
     function process_urls($entity){
         global $tagnames,$tagcounts;
         $url = $entity[0]['expanded_url'];
-        $apikey = "a2ab1a98f1174ecac062aa1a8f9d4f62a86c85c4";
+        $apikey = "your key here";
         $sitedata = file_get_contents("http://access.alchemyapi.com/calls/url/URLGetRankedKeywords"
                                     ."?url=$url"
                                     ."&apikey=$apikey"
